@@ -61,7 +61,49 @@
                 "clear": false
             },
             "problemMatcher": []
-        }
+        },
+        {
+            "label": "gpull",
+            "type": "shell",
+            "command": "git pull",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "gmerge",
+            "type": "shell",
+            "command": "python ~/.config/user_scripts/new/main.py git update \"${input:gupload_name}\"",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "gnbranch",
+            "type": "shell",
+            "command": "python ~/.config/user_scripts/new/main.py git update \"${input:gupload_name}\"",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
     ],
     "inputs": [
         {
