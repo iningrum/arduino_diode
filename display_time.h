@@ -6,11 +6,10 @@ typedef struct time{
     int minute;
     int b_mode;
     int b_speed;
+    int b_diode_id;
 } time_t;
 
-void print_hour(int hour);
-
-int print_minute(int minute);
+int print_hour(int hour);
 
 int define_blink_speed(int hour);
 #endif
