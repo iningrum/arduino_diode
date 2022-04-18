@@ -4,8 +4,8 @@
 typedef struct time{
     int hour;
     int minute;
-    int blink_speed;
-    int blink_index;
+    int b_mode;
+    int b_speed;
 } time_t;
 
 void print_hour(int hour);

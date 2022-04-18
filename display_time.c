@@ -15,13 +15,13 @@ void print_hour(int hour){
 }
 int print_minute(int minute){
     if (minute<20){
-        return 0;
+        return (1<<PD3);
     }
     else if (minute<40){
-        return 1;
+        return (1<<PD4);
     }
     else if (minute<60){
-        return 2;
+        return (1<<PD5);
     }
     
 }
