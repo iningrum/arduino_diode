@@ -26,5 +26,5 @@ int print_minute(int minute){
     
 }
 int define_blink_speed(int hour){
-    return hour%2? 250 : 500;
+    return hour%2? 0: 1;
 }
