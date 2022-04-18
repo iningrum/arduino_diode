@@ -51,7 +51,7 @@
         {
             "label": "gupload",
             "type": "shell",
-            "command": "python ~/.config/user_scripts/new/main.py git update \"${input:gupload_name}\"",
+            "command": "python ~/.config/user_scripts/new/main.py git update '${input:gupload_name}'",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
