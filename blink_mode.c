@@ -1,6 +1,6 @@
 #include "blink_mode.h"
 #include <avr/io.h>
-#define F_CPU 16000000
+#define F_CPU 0x10 * 0xF4240
 #include <util/delay.h>
 void cont(int mode, int diode_id){
     for (int i=0; i<2; i++){    

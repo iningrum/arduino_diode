@@ -20,3 +20,4 @@ deploy: led.hex
 
 clean:
 	rm led*
+	rm *.o

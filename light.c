@@ -1,8 +1,9 @@
 #include <avr/io.h>
-#define F_CPU 16000000
+#define F_CPU 0x10 * 0xF4240 // 16 * 1 MHz
 #include <util/delay.h>
 #include "display_time.h"
 #include "blink_mode.h"
+#include <avr/interrupt.h>
 
 time_t T;
 int LOOP = 1;
@@ -11,14 +12,14 @@ int LOOP = 1;
 
 
 int main(){
-    //DDRB |= DDRB | 0B010000;
-    DDRB |=  (1<<PD3) |
-             (1<<PD4) |
-             (1<<PD5);
-    
-    T.hour = 12;
-    T.minute = 30;
+    { // config
+        DDRB |=  (1<<PD3) |
+                 (1<<PD4) |
+                 (1<<PD5);
 
+        T.hour = 12;
+        T.minute = 30;
+    }
     while(1){
         void(*blink)(int, int) = (T.b_mode==0)? cont
             : (T.b_mode==1)? burst2
@@ -40,6 +41,7 @@ ISR (TIMER0_COMPA_vect){
     }
     if (!T.minute){
         T.hour = (T.hour<24)? T.hour+1 : 0;
+        // [1d] change active diodes and get oldest active bit
         T.b_diode_id = print_hour(T.hour);
         T.b_speed = define_blink_speed(T.hour);
         LOOP = 0;
