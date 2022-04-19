@@ -16,7 +16,13 @@ int main(){
         DDRB |=  (1<<PD3) |
                  (1<<PD4) |
                  (1<<PD5);
-
+        { // setting up timer
+            TCCR1B = (1 << WGM12); // set ctc bit
+            OCR1A = 19531;
+            TIMSK1 = (1 << OCIE1A);
+            sei();
+            TCCR1B |= (1 << CS12) | (1 << CS10);
+        }
         T.hour = 12;
         T.minute = 30;
     }
@@ -30,7 +36,7 @@ int main(){
         }
     }
 }
-ISR (TIMER0_COMPA_vect){
+ISR (TIMER1_COMPA_vect){
     static int count = 0;
     count = (count<59)? count+1 : 0;
     if (!count){
