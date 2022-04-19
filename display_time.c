@@ -8,6 +8,7 @@ int print_hour(int hour){
     int bit = 3;
     int oldest_diode = -1;
     int value = 0b000000;
+    PORTB = value;
     while(bit && hour){
         if(hour-(1<<bit)>=0){
             oldest_diode = bit+2;
