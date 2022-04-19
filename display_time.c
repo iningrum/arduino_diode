@@ -10,9 +10,9 @@ int print_hour(int hour){
     int value = 0b000000;
     while(bit && hour){
         if(hour-(1<<bit)>0){
-            oldest_diode = bit;
-            value |= (1<<bit);
-            hour-=(1<<bit);
+            oldest_diode = bit+2;
+            value |= (1<<bit+2);
+            hour-=(1<<bit+2);
         }
         bit--;
     }
