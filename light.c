@@ -10,7 +10,6 @@ int LOOP = 1;
 
 
 
-
 int main(){
     { // config
         DDRB |=  (1<<PD3) |
@@ -23,8 +22,15 @@ int main(){
             sei();
             TCCR1B |= (1 << CS12) | (1 << CS10);
         }
-        T.hour = 12;
-        T.minute = 30;
+        T.hour = 15;
+        T.minute = 8;
+    }
+    { // first setup
+        T.b_diode_id = print_hour(T.hour);
+        T.b_speed = define_blink_speed(T.hour);
+        T.b_mode = (T.minute<20)? 0
+                : (T.minute<40)? 1
+                : 2;
     }
     while(1){
         void(*blink)(int, int) = (T.b_mode==0)? cont
@@ -32,7 +38,11 @@ int main(){
             : burst3;
         LOOP = 1;
         while(LOOP){
-            blink(T.b_speed, T.b_diode_id);
+            if (T.b_diode_id!= -1)
+                blink(T.b_speed, T.b_diode_id);
+            else
+                for(int i =0; i <60 ; i++)
+                _delay_ms(1000);
         }
     }
 }
@@ -44,6 +54,9 @@ ISR (TIMER1_COMPA_vect){
         T.b_mode = (T.minute<20)? 0
             : (T.minute<40)? 1
             : 2;
+        if (T.minute%20 == 0){
+            LOOP = 0;
+        }
     }
     if (!T.minute){
         T.hour = (T.hour<24)? T.hour+1 : 0;
