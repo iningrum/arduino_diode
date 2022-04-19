@@ -7,6 +7,7 @@ void cont(int mode, int diode_id){
         mode? _delay_ms(125) : _delay_ms(750);
         PORTB ^= (1<<diode_id);
     }
+    PORTB &= ~(1<<diode_id);
     _delay_ms(2000);
 }
 void burst2(int mode, int diode_id){
@@ -14,6 +15,7 @@ void burst2(int mode, int diode_id){
         mode? _delay_ms(125) : _delay_ms(750);
         PORTB ^= (1<<diode_id);
     }
+    PORTB &= ~(1<<diode_id);
     _delay_ms(2000);
 }
 void burst3(int mode, int diode_id){
@@ -21,5 +23,6 @@ void burst3(int mode, int diode_id){
         mode? _delay_ms(125) : _delay_ms(750);
         PORTB ^= (1<<diode_id);
     }
+    PORTB &= ~(1<<diode_id);
     _delay_ms(2000);
 }

@@ -23,7 +23,7 @@ int main(){
             TCCR1B |= (1 << CS12) | (1 << CS10);
         }
         T.hour = 18;
-        T.minute = 25;
+        T.minute = 38;
     }
     { // first setup
         PORTB = 0;
