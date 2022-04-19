@@ -22,10 +22,11 @@ int main(){
             sei();
             TCCR1B |= (1 << CS12) | (1 << CS10);
         }
-        T.hour = 16;
-        T.minute = 30;
+        T.hour = 18;
+        T.minute = 25;
     }
     { // first setup
+        PORTB = 0;
         T.b_diode_id = print_hour(T.hour);
         T.b_speed = define_blink_speed(T.hour);
         T.b_mode = (T.minute<20)? 0
@@ -63,6 +64,7 @@ ISR (TIMER1_COMPA_vect){
         // [1d] change active diodes and get oldest active bit
         T.b_diode_id = print_hour(T.hour);
         T.b_speed = define_blink_speed(T.hour);
+        T.b_mode = 0;
         LOOP = 0;
     }
 }
