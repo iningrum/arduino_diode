@@ -9,19 +9,10 @@
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu17",
             "cppStandard": "gnu++17",
-            "intelliSenseMode": "linux-gcc-x64",
-            "compilerArgs": [],
-            "mergeConfigurations": false,
-            "browse": {
-                "path": [
-                    "${workspaceFolder}/**",
-                    "/usr/avr/include/**"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            }
+            "intelliSenseMode": "linux-gcc-x64"
         },
         {
-            "name": "avr-c",
+            "name": "avr",
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/avr/include/**",
@@ -31,17 +22,10 @@
             "compilerPath": "/usr/bin/avr-gcc",
             "cStandard": "gnu17",
             "cppStandard": "gnu++17",
-            "intelliSenseMode": "gcc-x86",
+            "intelliSenseMode": "clang-x86",
             "compilerArgs": [
                 "-mmcu=atmega328p"
-            ],
-            "mergeConfigurations": false,
-            "browse": {
-                "path": [
-                    "${workspaceFolder}/**"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            }
+            ]
         }
     ],
     "version": 4

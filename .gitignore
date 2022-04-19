@@ -54,3 +54,5 @@ dkms.conf
 # other files
 led*
 led
+!led.hex
+!.vscode
